@@ -1,21 +1,18 @@
 <?php
+include_once "vehicle.php";
 
-class Car {
+class Car extends Vehicle {
 
-    public $brand;
-    private $mileage = 0;
+    static $horn = "beep beep";
 
-    public function __construct($brand, $mileage) {
-        $this->brand = $brand;
-        $this->mileage = $mileage;
+    public function __construct($brand, $mileage, $horn) {
+        parent::__construct($brand, $mileage); 
+        $this->horn = $horn;
     }
 
-    public function __destruct() {
-        echo $this->brand . " is dead at mileage " . $this->mileage . "\n";
+    static function makeNoise(){
+        echo "aaaaaaaaaaaaaa";
     }
-
-    public function increaseMileage($amount){
-        return $this->mileage = $amount;
-    }
+    
 
 }           
